@@ -1,0 +1,25 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark"
+    style="background-color: #333; font-family: 'Arial', sans-serif;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#" style="color: #FFD700;">Dhruv's Camps</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" href="/" style="color: #FFFFFF;">Home</a>
+                <a class="nav-link" href="/campgrounds" style="color: #FFFFFF;">Campgrounds</a>
+                <a class="nav-link" href="/campgrounds/new" style="color: #FFFFFF;">New Campground</a>
+            </div>
+            <div class="navbar-nav ml-auto">
+                <% if(!currentUser) {%>
+                    <a class="nav-link" href="/login" style="color: #FF6347;">Login</a>
+                    <a class="nav-link" href="/register" style="color: #FF6347;">Register</a>
+                    <% } else {%>
+                        <a class="nav-link" href="/logout" style="color: #FF6347;">Logout</a>
+                        <% } %>
+            </div>
+        </div>
+    </div>
+</nav>
