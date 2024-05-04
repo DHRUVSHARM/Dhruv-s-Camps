@@ -2,66 +2,66 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: yelp-camp-secrets
+  name: dhruv-camp-secrets
 type: Opaque
 data:
-  CLOUDINARY_CLOUD_NAME: ZGlpMnJvenRw
-  CLOUDINARY_KEY: NzU3NjQzMjU3ODkxMzY0
-  CLOUDINARY_SECRET: SHpBeTdPU3VCZjJhSUFSUm5Fd0tIcEVtc01N
-  MAPBOX_TOKEN: cGsuZXlKMUlqb2lZV1JwYW1GcGMzZGhiQ0lzSW1FaU9pSmpiSFl3TnpKemVHNHhaRzR5TW1wd1ltWm1OSFZ3YlhObUluMC5SVlFZc3UwUnZKZ0NGNTRrMjJkWDBB
-  DB_URL: bW9uZ29kYitzcnY6Ly9qYWlzd2FsYWRpMjQ2OnNjN1ZHU3lkN2RRQ2NMeTFAY2x1c3RlcjAuaXE2bXV0aC5tb25nb2RiLm5ldC8/cmV0cnlXcml0ZXM9dHJ1ZSZ3PW1ham9yaXR5JmFwcE5hbWU9Q2x1c3RlcjA=
-  SECRET: ZGV2b3Bzc2hhY2s=
-
+  CLOUDINARY_CLOUD_NAME: ZG80bW95dWZzCg==
+  CLOUDINARY_KEY: MTMxODU1Mzc3ODY5NDE1Cg==
+  CLOUDINARY_SECRET: SnR3TzdrWXNaeXRtckRXX096b2JtTzJJNDRJCg==
+  MAPBOX_TOKEN: cGsuZXlKMUlqb2laSE0zTURReUlpd2lZU0k2SW1Oc2RtMTBkV1p6ZFRBMk9Ha3lhM00wYldsdk5XTnJPVzhpZlEuV2pVZE9NYXlfZkNaSHZaM0JaZlI0QQo=
+  DB_URL: bW9uZ29kYitzcnY6Ly9kaHJ1djk5OWRkcnI6QUJDREBkaHJ1djEuYWpqbTVteS5tb25nb2RiLm5ldC8/cmV0cnlXcml0ZXM9dHJ1ZSZ3PW1ham9yaXR5JmFwcE5hbWU9RGhydXYxCg==
+  SECRET: ZGV2b3BzX2JveQo=
+  
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: yelp-camp-deployment
+  name: dhruv-camp-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: yelp-camp
+      app: dhruv-camp
   template:
     metadata:
       labels:
-        app: yelp-camp
+        app: dhruv-camp
     spec:
       containers:
-        - name: yelp-camp-container
-          image: adijaiswal/campa:latest
+        - name: dhruv-camp-container
+          image: dhruv999ddrr/campa:latest
           ports:
             - containerPort: 3000
           env:
             - name: CLOUDINARY_CLOUD_NAME
               valueFrom:
                 secretKeyRef:
-                  name: yelp-camp-secrets
+                  name: dhruv-camp-secrets
                   key: CLOUDINARY_CLOUD_NAME
             - name: CLOUDINARY_KEY
               valueFrom:
                 secretKeyRef:
-                  name: yelp-camp-secrets
+                  name: dhruv-camp-secrets
                   key: CLOUDINARY_KEY
             - name: CLOUDINARY_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: yelp-camp-secrets
+                  name: dhruv-camp-secrets
                   key: CLOUDINARY_SECRET
             - name: MAPBOX_TOKEN
               valueFrom:
                 secretKeyRef:
-                  name: yelp-camp-secrets
+                  name: dhruv-camp-secrets
                   key: MAPBOX_TOKEN
             - name: DB_URL
               valueFrom:
                 secretKeyRef:
-                  name: yelp-camp-secrets
+                  name: dhruv-camp-secrets
                   key: DB_URL
             - name: SECRET
               valueFrom:
                 secretKeyRef:
-                  name: yelp-camp-secrets
+                  name: dhruv-camp-secrets
                   key: SECRET
           livenessProbe:
             httpGet:
@@ -78,10 +78,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: yelp-camp-service
+  name: dhruv-camp-service
 spec:
   selector:
-    app: yelp-camp
+    app: dhruv-camp
   ports:
     - protocol: TCP
       port: 3000
